@@ -1,0 +1,9 @@
+var place_setting = { "fill": "orange", "stroke": "red", "stroke-width": "3" };
+var PlaceRad = 30;
+var token_setting = { "fill": "black", "stroke": "black", "stroke-width": "0" };
+var trans_setting = { "fill": "blue", "stroke": "black", "stroke-width": "2" };
+var width = 10;
+var height = 50;
+var text_onToken = { "fill": "white", "font-size": "10" };
+var arrow_head = { "stroke": "brown", "stroke-width": "3", "arrow-end": "block-wide-long" };
+var text_setting = { "fill": "black", "font-size": "16"};

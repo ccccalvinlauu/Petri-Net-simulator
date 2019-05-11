@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>Petri Net Simulator</title>
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/jquery-ui.css" rel="stylesheet"/>
+    <link href="css/main.css" rel="stylesheet"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/raphael.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script src="src/controller/buttons.js"></script>
+    <script src="src/controller/saveAndload.js"></script>
+    <script src="src/controller/controller.js"></script>
+    <script src="src/view/settings.js"></script>
+    <script src="src/view/view.js"></script>
+    <script src="src/Model/run_net.js"></script>
+    <script src="src/Model/Analysis.js"></script>
+    <meta charset="utf-8">
+
+</head>
+<body onload="onload()" onresize="resize()">
+
+    <div class="container-fluid">
+                <label id="time_label"  style="cursor:pointer; float:left;width: 100px;text-align:center; font-size:14pt; border:solid black 1px;">&nbsp;</label>
+                <label id="selected_label" onclick="unselect()" style="cursor:pointer; float:left;width: 60px;text-align:center; font-size:14pt; border:solid black 1px;">&nbsp;</label>
+                <div class="btn-group navbar-btn" >
+                    <button class="btn btn-primary disableWhenRun " id="btnAddPlaces">
+                        <span class="glyphicon glyphicon-plus-sign"></span> Place
+                    </button>
+                    <button class="btn btn-primary disableWhenRun " id="btnAddTrans">
+                        <span class="glyphicon glyphicon-plus-sign"></span> Transition
+                    </button>
+                    <button class="btn btn-primary disableWhenRun " id="btnAddArcs">
+                        <span class="glyphicon glyphicon-plus-sign"></span> Arc
+                    </button>
+                    <button class="btn btn-primary disableWhenRun " id="btnRemove">
+                        <span class="glyphicon  glyphicon-minus-sign"></span> Remove
+                    </button>
+                    <button class="btn btn-primary disableWhenRun " id="btnClear">
+                        <span class="glyphicon  glyphicon-remove "></span> Clear
+                    </button>
+                    <button class="btn btn-success disableWhenRun enableWhenPause" id="btnRun">
+                        <span class="glyphicon glyphicon-play-circle"></span> Run
+                    </button>
+                    <button class="btn btn-danger disableIdle" id="btnPause">
+                        <span class="glyphicon glyphicon-pause"></span> Pause
+                    </button>
+                    <button class="btn btn-danger disableIdle enableWhenPause" id="btnStop">
+                        <span class="glyphicon glyphicon-stop"></span> Stop
+                    </button>
+
+                    <button class="btn btn-Info disableWhenRun " id="btnSave">
+                        <span class="glyphicon glyphicon-save"></span> Save
+                    </button>
+                    <input type="file" class="btn btn-Info glyphicon-file disableWhenRun" style="font-size: 0pt;"  onchange="showFile()" />
+
+                      <button class="btn btn-Info dropdown-toggle disableWhenRun" type="button" data-toggle="dropdown"> Examples
+                      <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a id="Example1">Example 1</a></li>
+                        <li><a id="Example2">Example 2</a></li>
+                        <li><a id="Example3">Example 3</a></li>
+                        <li><a id="Example4">Example 4</a></li>
+                      </ul>
+                    <button class="btn btn-Info " id="btnAnalysis">
+                        <span class="glyphicon glyphicon-eye-open"></span> Analysis
+                    </button>
+                    <button class="btn btn-Info disableWhenRun " id="btnReload">
+                        <span class="glyphicon glyphicon-refresh"></span>
+                    </button>
+                    <button class="btn btn-Info disableWhenRun " id="btnHelp">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                    </button>
+
+                </div>
+        <div class="analysis-div" id="analysis_div" style="display:none">
+        <p id="info"></p>
+        </div>
+        <div class="help-div" id="help_div" style="display:none">
+        <p id="help_text"></p>
+        </div>
+
+        <div class="center-container" >
+
+            <div class="center-row" id="center_row">
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
